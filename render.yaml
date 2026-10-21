@@ -1,0 +1,21 @@
+# Web service for Bola.
+# Render blueprints cannot declare Workflows yet.
+# Create the workflow in the dashboard. See README.
+services:
+  - type: web
+    name: bola
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      - key: ELEVENLABS_VOICE_ID
+        value: 21m00Tcm4TlvDq8ikWAM
+      - key: ELEVENLABS_MODEL_ID
+        value: eleven_multilingual_v2
+      - key: RENDER_API_KEY
+        sync: false
+      - key: RENDER_WORKFLOW_TASK
+        sync: false
